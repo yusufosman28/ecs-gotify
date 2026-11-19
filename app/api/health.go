@@ -39,8 +39,5 @@ func (a *HealthAPI) Health(ctx *gin.Context) {
 		})
 		return
 	}
-	ctx.JSON(200, model.Health{
-		Health:   model.StatusGreen,
-		Database: model.StatusGreen,
-	})
+	ctx.JSON(200, gin.H{"status": "ok"})
 }

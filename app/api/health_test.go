@@ -39,7 +39,7 @@ func (s *HealthSuite) AfterTest(suiteName, testName string) {
 
 func (s *HealthSuite) TestHealthSuccess() {
 	s.a.Health(s.ctx)
-	test.BodyEquals(s.T(), model.Health{Health: model.StatusGreen, Database: model.StatusGreen}, s.recorder)
+	test.BodyEquals(s.T(), map[string]string{"status": "ok"}, s.recorder)
 }
 
 func (s *HealthSuite) TestDatabaseFailure() {
